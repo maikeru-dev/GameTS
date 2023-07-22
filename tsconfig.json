@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict" : false,
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outFile": "./build/tsc.js",
+    "sourceMap": true,
+    "lib": [
+      "decorators",
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.collection"
+    ]
+  },
+  "include": ["src/**/*"]
+}
