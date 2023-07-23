@@ -1,5 +1,5 @@
 import './Keycodes';
-abstract class KeyListener {
+export default abstract class KeyListener {
     protected keys : Keycodes[];
 
     abstract runOnKeyUp(key : String) : void;
@@ -19,7 +19,7 @@ abstract class KeyListener {
             }
         }
     }
-    protected constructor(keys : Keycodes[]) {
+    constructor(keys : Keycodes[]) {
         this.keys = keys;
         this.init();
     }

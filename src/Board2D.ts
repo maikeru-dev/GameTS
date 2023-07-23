@@ -35,10 +35,10 @@ export default class Board2D {
         }
         return null;
     }
-    public updateDot(coords : Coordinate, dot : Dot) : boolean {
+    public updateDot(coords : Coordinate, colour : Colour) : boolean {
         let index = coords.x + coords.y*this._DIM.width;
         if (index <= this._DIM.width*this._DIM.height) {
-            this._dots[index] = dot;
+            this._dots[index].colour = colour;
             return true;
         }
         return false;

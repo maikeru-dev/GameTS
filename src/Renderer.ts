@@ -42,7 +42,11 @@ export default class Renderer {
         return new Colour(red, blue, green);
     }
 
-    public update(): void { // big draw!
+    public update(): void {
+        /*
+         This function should only be used when updating the whole canvas, as it loops for each dot in the board.
+         Could be used in sprites, one cycle dot changes, changing the background, etc...
+        *  */
         let x: number;
         let y: number;
         let boardDIM = this._board.getDIM;
@@ -64,8 +68,6 @@ export default class Renderer {
     }
 
     private draw(dot: Dot): void {
-        // TODO : CANVAS SIZE MUST BE DETERMINED : DONE
-        // TODO : DOT SIZE MUST BE DEFINED : DONE
         // TODO : CREATE AND UTILIZE A JSON CONFIG : ALMOST DONE, HAS DEFAULTS
         let coords = dot.coords;
         let colour = `rgb(

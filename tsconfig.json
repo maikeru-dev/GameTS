@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "strict" : false,
-    "module": "system",
+    "module": "esnext",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "outFile": "./build/tsc.js",
+    "outDir": "build/tsc.js",
     "sourceMap": true,
     "lib": [
       "decorators",
