@@ -1,5 +1,5 @@
-import {Colour, Coordinate, Dimension, Dot} from "./Types";
-import Configuration from "./Configuration";
+import {Colour, Coordinate, Dimension, Dot} from "./Utility/Types";
+import Configuration from "./Utility/Configuration";
 export default class Board2D {
     protected _dots : Dot[];
     protected _DIM : Dimension;

@@ -1,5 +1,5 @@
-import { Dimension, Colour, Coordinate, Dot } from './Types';
-import Configuration from "./Configuration";
+import { Dimension, Colour, Coordinate, Dot } from './Utility/Types';
+import Configuration from "./Utility/Configuration";
 import Board2D from "./Board2D";
 
 export default class Renderer {

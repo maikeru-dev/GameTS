@@ -1,14 +1,8 @@
 export interface Dot {
     colour : Colour;
-    coords : Coordinate;
 }
-export interface Dimension {
-    width : number;
-    height : number;
-}
-export interface Coordinate {
-    x : number;
-    y : number;
+export interface Sprite {
+    imageRef : typeof Image;
 }
 export class Colour {
     red : number;

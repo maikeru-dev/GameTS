@@ -1,4 +1,4 @@
-import './Keycodes';
+import './Utility/Keycodes';
 export default abstract class KeyListener {
     protected keys : Keycodes[];
 
