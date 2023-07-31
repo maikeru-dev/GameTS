@@ -3,6 +3,7 @@ import Vector2D from "../Movement/Vector2D";
 
 export default class CollisionComponent extends Component {
     relativeOrigin : Vector2D;
+    boundaryLines : Vector2D;
     size : Vector2D;
     constructor(size : Vector2D) {
         super();
@@ -23,16 +24,16 @@ export default class CollisionComponent extends Component {
         args.forEach((element : any) => {
             if (element instanceof CollisionComponent) {
                 // Figure out that this object and that object are not overlapping.
-                let component = element as CollisionComponent;
+                let otherComponent = element as CollisionComponent;
                 let position : Vector2D = this.parent.position;
-                let otherPosition : Vector2D = component.parent.position;
-                let direction : Vector2D;
+                let otherPosition : Vector2D = otherComponent.parent.position;
 
-                direction = Vector2D.subtract(otherPosition, position);
-                direction.normalize();
-                direction.round();
+                let ourAbsolutePoint = Vector2D.add(position, CollisionComponent.findBoundaryLines(this, otherPosition));
+                let otherAbsolutePoint = Vector2D.add(otherPosition, CollisionComponent.findBoundaryLines(otherComponent, position));
 
-                let x1 :
+
+
+
             }
         })
 
@@ -40,6 +41,15 @@ export default class CollisionComponent extends Component {
     }
     onUpdate(args: any[]): void {
 
+    }
+    private static findBoundaryLines(componentA : CollisionComponent, otherPosition : Vector2D) : Vector2D {
+        let positionA : Vector2D = componentA.parent.position;
+        let direction : Vector2D = Vector2D.direction(positionA, otherPosition);
+
+        let lines : Vector2D = Vector2D.scale(direction, componentA.size); // {(1,1), (1,0), (0,1), (0,0) & inverses}
+        let relativeLinePosition : Vector2D = Vector2D.subtract(lines, componentA.relativeOrigin);
+
+        return relativeLinePosition;
     }
 
 }

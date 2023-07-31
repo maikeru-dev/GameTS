@@ -9,6 +9,9 @@ export default class Vector2D {
         this.x = this.x / magnitude;
         this.y = this.y / magnitude;
     }
+    public splitVector() : Vector2D[] {
+        return [new Vector2D(this.x, 0), new Vector2D(0, this.y)];
+    }
     public round() : void  {
         this.x = this.roundNumber(this.x);
         this.y = this.roundNumber(this.y);
@@ -31,6 +34,18 @@ export default class Vector2D {
     get normalized() : Vector2D {
         let magnitude = this.magnitude;
         return new Vector2D(this.x / magnitude, this.y / magnitude);
+    }
+    static intersection (vectorA : Vector2D, vectorB : Vector2D) : boolean {
+        return !(vectorA.x > vectorB.x && vectorA.y > vectorB.y);
+    }
+    static direction (vectorA : Vector2D, vectorB : Vector2D) : Vector2D {
+        let direction : Vector2D;
+
+        direction = Vector2D.subtract(vectorB, vectorA);
+        direction.normalize();
+        direction.round();
+
+        return direction;
     }
     static scale (vectorA : Vector2D, vectorB : Vector2D) : Vector2D {
         return new Vector2D(vectorA.x * vectorB.x, vectorA.y * vectorB.y);
